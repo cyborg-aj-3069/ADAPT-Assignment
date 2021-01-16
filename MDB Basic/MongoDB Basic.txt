@@ -1,0 +1,460 @@
+Microsoft Windows [Version 10.0.18363.1256]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+F:\mongoDB\mongodb-win32-x86_64-windows-4.4.3\bin>mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("0b9f1e66-05e5-48f3-be48-141865a53f9c") }
+MongoDB server version: 4.4.3
+---
+The server generated these startup warnings when booting:
+        2021-01-14T10:18:06.570+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2021-01-14T10:18:06.571+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin           0.000GB
+config          0.000GB
+local           0.000GB
+mongo_practice  0.000GB
+users           0.000GB
+> use mongo_practice
+switched to db mongo_practice
+> show  collections
+mongo_practice
+movies
+> db.mongo_practice.find().pretty()
+{
+        "_id" : ObjectId("5ffd759fd48b7236eb9a8364"),
+        "Title" : "Fight Club",
+        "Writer" : "Chuck Palahniuko",
+        "Year" : 1999,
+        "Actors" : [
+                "Brad Pitt",
+                "Edward Norton"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7688d48b7236eb9a8365"),
+        "Title" : "Pulp Fiction",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 1994,
+        "Actors" : [
+                "John Travolta",
+                "Uma Thurman"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7763d48b7236eb9a8367"),
+        "Title" : "Inglorious Basterds",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 2009,
+        "Actors" : [
+                "Brad Pitt",
+                "Diane Kruger",
+                "Eli Roth"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7801d48b7236eb9a8368"),
+        "Title" : "The Hobbit:An Uxpected Story",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit"
+}
+{
+        "_id" : ObjectId("5ffd7839d48b7236eb9a8369"),
+        "Title" : "The Hobbit:The Desolation of Smaug",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2013,
+        "Franchise" : "The Hobbit"
+}
+{
+        "_id" : ObjectId("5ffd7945d48b7236eb9a836b"),
+        "Title" : "The Hobbit:The Battle of Five Armies",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : " Bilbo and Company are forced to engage in a war against an array of combatants and keep the lonely mountain from falling into the hands of a rising darkness."
+}
+{
+        "_id" : ObjectId("5ffd7989d48b7236eb9a836c"),
+        "Title" : "Pee Wee Herman's Big Adventure"
+}
+{ "_id" : ObjectId("5ffd7996d48b7236eb9a836d"), "Title" : "Avatar" }
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+> use mongo_practice
+switched to db mongo_practice
+> db.mongo_practice.find({Writer:"Queintin Tarantino"})
+{ "_id" : ObjectId("5ffd7688d48b7236eb9a8365"), "Title" : "Pulp Fiction", "Writer" : "Queintin Tarantino", "Year" : 1994, "Actors" : [ "John Travolta", "Uma Thurman", "Samuel L. Jackson" ] }
+{ "_id" : ObjectId("5ffd7763d48b7236eb9a8367"), "Title" : "Inglorious Basterds", "Writer" : "Queintin Tarantino", "Year" : 2009, "Actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+> db.mongo_practice.find({Actors:"Brad Pitt"})
+{ "_id" : ObjectId("5ffd759fd48b7236eb9a8364"), "Title" : "Fight Club", "Writer" : "Chuck Palahniuko", "Year" : 1999, "Actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("5ffd7763d48b7236eb9a8367"), "Title" : "Inglorious Basterds", "Writer" : "Queintin Tarantino", "Year" : 2009, "Actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+> db.mongo_practice.find({Franchise:"The Hobbit"}).pretty()
+{
+        "_id" : ObjectId("5ffd7801d48b7236eb9a8368"),
+        "Title" : "The Hobbit:An Uxpected Journey",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"
+}
+{
+        "_id" : ObjectId("5ffd7839d48b7236eb9a8369"),
+        "Title" : "The Hobbit:The Desolation of Smaug",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2013,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+}
+{
+        "_id" : ObjectId("5ffd7945d48b7236eb9a836b"),
+        "Title" : "The Hobbit:The Battle of Five Armies",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : " Bilbo and Company are forced to engage in a war against an array of combatants and keep the lonely mountain from falling into the hands of a rising darkness."
+}
+>                                                                                                                                                                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Updated Data
+
+ db.mongo_practice.find().pretty()
+{
+        "_id" : ObjectId("5ffd759fd48b7236eb9a8364"),
+        "Title" : "Fight Club",
+        "Writer" : "Chuck Palahniuko",
+        "Year" : 1999,
+        "Actors" : [
+                "Brad Pitt",
+                "Edward Norton"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7688d48b7236eb9a8365"),
+        "Title" : "Pulp Fiction",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 1994,
+        "Actors" : [
+                "John Travolta",
+                "Uma Thurman",
+                "Samuel L. Jackson"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7763d48b7236eb9a8367"),
+        "Title" : "Inglorious Basterds",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 2009,
+        "Actors" : [
+                "Brad Pitt",
+                "Diane Kruger",
+                "Eli Roth"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7801d48b7236eb9a8368"),
+        "Title" : "The Hobbit:An Uxpected Journey",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"
+}
+{
+        "_id" : ObjectId("5ffd7839d48b7236eb9a8369"),
+        "Title" : "The Hobbit:The Desolation of Smaug",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2013,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+}
+{
+        "_id" : ObjectId("5ffd7945d48b7236eb9a836b"),
+        "Title" : "The Hobbit:The Battle of Five Armies",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : " Bilbo and Company are forced to engage in a war against an array of combatants and keep the lonely mountain from falling into the hands of a rising darkness."
+}
+{
+        "_id" : ObjectId("5ffd7989d48b7236eb9a836c"),
+        "Title" : "Pee Wee Herman's Big Adventure"
+}
+{ "_id" : ObjectId("5ffd7996d48b7236eb9a836d"), "Title" : "Avatar" }
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Deleted Last 2 rows
+
+> db.mongo_practice.find().pretty()
+{
+        "_id" : ObjectId("5ffd759fd48b7236eb9a8364"),
+        "Title" : "Fight Club",
+        "Writer" : "Chuck Palahniuko",
+        "Year" : 1999,
+        "Actors" : [
+                "Brad Pitt",
+                "Edward Norton"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7688d48b7236eb9a8365"),
+        "Title" : "Pulp Fiction",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 1994,
+        "Actors" : [
+                "John Travolta",
+                "Uma Thurman",
+                "Samuel L. Jackson"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7763d48b7236eb9a8367"),
+        "Title" : "Inglorious Basterds",
+        "Writer" : "Queintin Tarantino",
+        "Year" : 2009,
+        "Actors" : [
+                "Brad Pitt",
+                "Diane Kruger",
+                "Eli Roth"
+        ]
+}
+{
+        "_id" : ObjectId("5ffd7801d48b7236eb9a8368"),
+        "Title" : "The Hobbit:An Uxpected Journey",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"
+}
+{
+        "_id" : ObjectId("5ffd7839d48b7236eb9a8369"),
+        "Title" : "The Hobbit:The Desolation of Smaug",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2013,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."
+}
+{
+        "_id" : ObjectId("5ffd7945d48b7236eb9a836b"),
+        "Title" : "The Hobbit:The Battle of Five Armies",
+        "Writer" : "JPR Tolkein",
+        "Year" : 2012,
+        "Franchise" : "The Hobbit",
+        "Synopsis" : " Bilbo and Company are forced to engage in a war against an array of combatants and keep the lonely mountain from falling into the hands of a rising darkness."
+}
+********************************************************************************************************************************************************************************************************************
+> show dbs
+admin           0.000GB
+config          0.000GB
+local           0.000GB
+mongo_practice  0.000GB
+population      0.002GB
+users           0.000GB
+> use mongo_practice
+switched to db mongo_practice
+> show collections
+mongo_practice
+movies
+
+Users
+> db.users.insert([{Username:"GoodGuyGreg" , Firstname:"Good Guy" , Last_name:"Greg" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.users.insert([{Username:"ScumbagSteve" , Fullname:[{first:"Scumbag" , Last:"Steve" }]}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+-----------------------------------------------------------------------------------------------------------------------------------
+Posts
+
+> db.posts.insert([{Username:"GoodGuyGreg" , Title:"Passes out at party" , Body:" Wakes up early and cleans house" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.posts.insert([{Username:"GoodGuyGreg" , Title:"Steals your identity" , Body:"Raises your credit score" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.posts.insert([{Username:"GoodGuyGreg" , Title:" Reports a bug in your code" , Body:"Sends you a Pull Request" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.posts.insert([{Username:"ScumbagSteve" , Title:"Borrows something" , Body:"Sells it" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.posts.insert([{Username:"ScumbagSteve" , Title:"Borrows everything" , Body:"The end" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.posts.insert([{Username:"ScumbagSteve" , Title:" Forks your repo on github" , Body:"Sets to private" }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+----------------------------------------------------------------------------------------------------------------------------
+> use mongo_practice
+switched to db mongo_practice
+> show collections
+mongo_practice
+movies
+posts
+users
+> db.comments.insert([{Username:"GoodGuyGreg" , Comment:"Hope you got a good deal!" , post:["60002b5c6a1de86a80e98655"] }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.comments.insert([{Username:"GoodGuyGreg" , Comment:"What's mine is yours!" , post:["60002b816a1de86a80e98656"] }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.comments.insert([{Username:"GoodGuyGreg" , Comment:"Don't violate the licensing agreement!" , post:["60002b816a1de86a80e98657"] }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.comments.insert([{Username:"ScumBagSteve" , Comment:"It still isn't clean" , post:["60002b816a1de86a80e98651"] }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.comments.insert([{Username:"ScumBagSteve" , Comment:"Denied your PR cause I found a hack" , post:["60002b816a1de86a80e98654"] }])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 1,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.users.find()
+{ "_id" : ObjectId("600028366a1de86a80e98649"), "Username" : "GoodGuyGreg", "Firstname" : "Good Guy", "Last_name" : "Greg" }
+{ "_id" : ObjectId("600028436a1de86a80e9864a"), "Username" : "ScumbagSteve", "Fullname" : [ { "first" : "Scumbag", "Last" : "Steve" } ] }
+> db.posts.find()
+{ "_id" : ObjectId("60002a406a1de86a80e98651"), "Username" : "GoodGuyGreg", "Title" : "Passes out at party", "Body" : " Wakes up early and cleans house" }
+{ "_id" : ObjectId("60002a4c6a1de86a80e98652"), "Username" : "GoodGuyGreg", "Title" : "Steals your identity", "Body" : "Raises your credit score" }
+{ "_id" : ObjectId("60002b326a1de86a80e98654"), "Username" : "GoodGuyGreg", "Title" : " Reports a bug in your code", "Body" : "Sends you a Pull Request" }
+{ "_id" : ObjectId("60002b5c6a1de86a80e98655"), "Username" : "ScumbagSteve", "Title" : "Borrows something", "Body" : "Sells it" }
+{ "_id" : ObjectId("60002b816a1de86a80e98656"), "Username" : "ScumbagSteve", "Title" : "Borrows everything", "Body" : "The end" }
+{ "_id" : ObjectId("60002ba86a1de86a80e98657"), "Username" : "ScumbagSteve", "Title" : " Forks your repo on github", "Body" : "Sets to private" }
+> db.posts.find({Username:"GoodGuyGreg"})
+{ "_id" : ObjectId("60002a406a1de86a80e98651"), "Username" : "GoodGuyGreg", "Title" : "Passes out at party", "Body" : " Wakes up early and cleans house" }
+{ "_id" : ObjectId("60002a4c6a1de86a80e98652"), "Username" : "GoodGuyGreg", "Title" : "Steals your identity", "Body" : "Raises your credit score" }
+{ "_id" : ObjectId("60002b326a1de86a80e98654"), "Username" : "GoodGuyGreg", "Title" : " Reports a bug in your code", "Body" : "Sends you a Pull Request" }
+> db.posts.find({Username:"ScumbagSteve"})
+{ "_id" : ObjectId("60002b5c6a1de86a80e98655"), "Username" : "ScumbagSteve", "Title" : "Borrows something", "Body" : "Sells it" }
+{ "_id" : ObjectId("60002b816a1de86a80e98656"), "Username" : "ScumbagSteve", "Title" : "Borrows everything", "Body" : "The end" }
+{ "_id" : ObjectId("60002ba86a1de86a80e98657"), "Username" : "ScumbagSteve", "Title" : " Forks your repo on github", "Body" : "Sets to private" }
+> db.comments.find()
+{ "_id" : ObjectId("60003247a81d886732d63f44"), "Username" : "GoodGuyGreg", "Comment" : "Hope you got a good deal!", "post" : [ "60002b5c6a1de86a80e98655" ] }
+{ "_id" : ObjectId("6000324ca81d886732d63f45"), "Username" : "GoodGuyGreg", "Comment" : "What's mine is yours!", "post" : [ "60002b816a1de86a80e98656" ] }
+{ "_id" : ObjectId("60003250a81d886732d63f46"), "Username" : "GoodGuyGreg", "Comment" : "Don't violate the licensing agreement!", "post" : [ "60002b816a1de86a80e98657" ] }
+{ "_id" : ObjectId("60003259a81d886732d63f47"), "Username" : "ScumBagSteve", "Comment" : "It still isn't clean", "post" : [ "60002b816a1de86a80e98651" ] }
+{ "_id" : ObjectId("6000325ea81d886732d63f48"), "Username" : "ScumBagSteve", "Comment" : "Denied your PR cause I found a hack", "post" : [ "60002b816a1de86a80e98654" ] }
+> db.comments.find({Username:"GoodGuyGreg"})
+{ "_id" : ObjectId("60003247a81d886732d63f44"), "Username" : "GoodGuyGreg", "Comment" : "Hope you got a good deal!", "post" : [ "60002b5c6a1de86a80e98655" ] }
+{ "_id" : ObjectId("6000324ca81d886732d63f45"), "Username" : "GoodGuyGreg", "Comment" : "What's mine is yours!", "post" : [ "60002b816a1de86a80e98656" ] }
+{ "_id" : ObjectId("60003250a81d886732d63f46"), "Username" : "GoodGuyGreg", "Comment" : "Don't violate the licensing agreement!", "post" : [ "60002b816a1de86a80e98657" ] }
+> db.comments.find({Username:"ScumBagSteve"})
+{ "_id" : ObjectId("60003259a81d886732d63f47"), "Username" : "ScumBagSteve", "Comment" : "It still isn't clean", "post" : [ "60002b816a1de86a80e98651" ] }
+{ "_id" : ObjectId("6000325ea81d886732d63f48"), "Username" : "ScumBagSteve", "Comment" : "Denied your PR cause I found a hack", "post" : [ "60002b816a1de86a80e98654" ] }
+> db.comments.find({"post" : [ "60002b816a1de86a80e98654" ]})
+{ "_id" : ObjectId("6000325ea81d886732d63f48"), "Username" : "ScumBagSteve", "Comment" : "Denied your PR cause I found a hack", "post" : [ "60002b816a1de86a80e98654" ] }
+>                                                                                                                                                                                                                   
