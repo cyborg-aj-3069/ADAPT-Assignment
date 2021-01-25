@@ -1,0 +1,24 @@
+public class ArmstrongOrNot {
+    public boolean armstrongCheck(int num){
+        int n = num;
+        int r,sum =0;
+        for(int i=0;n>0;n/=10){
+            r = n%10;
+            sum = sum +(r*r*r);
+        }
+        return sum == num;
+    }
+}
+
+
+public class Assignment1Q1 {
+    public static void main(String[] args) {
+        int num = 371;
+        int num1 = 352;
+        ArmstrongOrNot arms = new ArmstrongOrNot();
+         boolean a = arms.armstrongCheck(num);
+         boolean b = arms.armstrongCheck(num1);
+        System.out.println("371 is armstrong : "+ a ) ;
+        System.out.println("352 is armstrong : "+ b ) ;
+    }
+}
