@@ -1,0 +1,29 @@
+public class SiCi {
+    public double simpleInterest(double principalAmount,int time,double interestRate){
+        double p = principalAmount;
+        int t = time;
+        double r =interestRate;
+        double si= (p*r*t)/100;
+        return si;
+
+
+    }
+    public double compoundInterest(double principalAmount,int time,double interestRate){
+        double p = principalAmount;
+        int t = time;
+        double r =interestRate;
+        double ci = (p * (Math.pow(1 + r / 100, t))) - p;
+        return ci;
+
+    }
+
+}
+
+public class Assignment1Q3 {
+    public static void main (String args[]) {
+        SiCi obj = new SiCi();
+        System.out.println("Simple Interest Is :" + obj.simpleInterest(50000,3,5));
+        System.out.println("Compound Interest Is :" + obj.compoundInterest(50000,3,5));
+
+    }
+}
