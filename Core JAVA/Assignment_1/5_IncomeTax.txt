@@ -1,0 +1,38 @@
+public class TaxAmount {
+    public double calculateTaxAmount(int ctc){
+        int i= ctc; double ta=0 , s1,s2,s3,t1,t2,t3;
+        if (i>0 && i<=180000){
+            ta = 0;
+           }
+        else if (i>=180001 && i <= 300000){
+             s1 = i -180000 ;
+             ta = s1 * 0.10 ;
+        }
+        else if (i>=300001 && i <= 500000) {
+            s1 = i - 180000; s2 = i -300000;
+            t1 = s1 * 0.10;  t2 = s2 * 0.20;
+            ta = t1 + t2 ;
+        }
+        else if (i>=500001 && i <= 1000000){
+            s1 = i - 180000; s2 = i -300000; s3 = i-500000;
+            t1 = s1 * 0.10;  t2 = s2 * 0.20;  t3 = s3 * 0.30;
+            ta = t1 + t2 + t3 ;
+
+        }
+          else{
+              System.out.println("Please Enter the amount from 0-1000000");
+        }
+        return ta;
+    }
+}
+
+public class Assignment1Q5 {
+    public static void main(String args[]) {
+        TaxAmount obj = new TaxAmount();
+        System.out.println("Tax Amount is :" +obj.calculateTaxAmount(100000));
+        System.out.println("Tax Amount is :" +obj.calculateTaxAmount(200000));
+        System.out.println("Tax Amount is :" +obj.calculateTaxAmount(400000));
+        System.out.println("Tax Amount is :" +obj.calculateTaxAmount(800000));
+    }
+}
+
