@@ -1,0 +1,18 @@
+1. Create a new branch ‘css-assignments’.
+ 2. Switch to ‘css-assignments’ branch. 
+3. Copy all CSS assignments inside ‘Assignments’ folder.
+ 4. Commit CSS assignments into ‘css-assignments’ branch. 
+5. Make minor changes into README.txt file on line 1 belonging to ‘css-assignments’ branch. 
+6. Commit those changed files. 
+7. Switch to master branch. 
+8. Make minor changes into README.txt file on line 3 & commit those changes into master.
+ 9. Again switch to ‘css-assignments’ branch. 
+<<<<<<< HEAD
+10. Make minor changes into few files belonging to ‘css-assignments’ branch. 
+11. Commit those changes. 
+=======
+10. Make minor changes into few files belonging to ‘css-assignments’ branch.
+>>>>>>> css-assignment
+12. Switch to master. 
+13. Merge ‘css-assignments’ branch into master. Confirm all css assignments are shown in master. 
+14. Finally delete the ‘css-assignments’ branch.
