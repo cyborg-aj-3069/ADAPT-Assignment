@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       
+       <bean  id = "Question1" class="com.assignmentQ2.Questions">
+  <property name="QuesNo" value="1"></property>
+  <property name="Question" value= "Where is Taj Mahal located ?"></property> 
+  <property name="Answer" value="Agra"></property>
+  </bean>
+  
+   <bean  id = "Question2" class="com.assignmentQ2.Questions">
+  <property name="QuesNo" value="2"></property>
+  <property name="Question" value= "Where is Hawa Mahal Located?"></property> 
+  <property name="Answer" value=" Jaipur"></property>
+  </bean>
+  
+  <bean  id = "Question3" class="com.assignmentQ2.Questions">
+  <property name="QuesNo" value="2"></property>
+  <property name="Question" value= "Where is Howrah Bridge Located?"></property> 
+  <property name="Answer" value=" Kolkata"></property>
+  </bean>
+  
+       
+       
+       
+       </beans>
