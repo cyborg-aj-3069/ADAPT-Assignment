@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS-Q6</title>
+</head>
+<body>
+<script>  
+var arr2=[];
+function square(n){
+    n = n*n;
+    arr2.push(n);
+}
+function MapFunc(arr1,square){
+  arr1.slice(0,arr1.length);
+  arr1.map(square);  
+  
+}
+MapFunc([1,3,5,4,2],square);
+console.log(arr2)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS-Q5</title>
+</head>
+<body>
+<script>  
+const compose =(a) =>(data) =>a(data)
+const Even = (num) => {return(num % 2 == 0)}
+
+function find(arr1,Even){
+var arr2=[]
+if(Even(arr1.slice(3,4))==true)
+     {
+    arr2.push(arr1[3]);
+}
+return arr2.slice(0,2);
+}
+console.log(find([1,3,5,4,2],Even));
+</script>
+
+</body>
+</html>
