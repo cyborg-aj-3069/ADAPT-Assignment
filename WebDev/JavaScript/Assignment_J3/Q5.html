@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS-Q5</title>
+</head>
+<body>
+<script>  
+var Name = {
+  FirstName: "Abhishek", 
+  MiddleName: "Kumar",
+  LastName : "Jha"
+   
+}
+var Originalname = Object.assign({},Name);
+var Fullname = Object.assign(Name);
+var MiddleName=Object.assign(Name.MiddleName);
+var x =Name.MiddleName="";
+console.log(Originalname)
+console.log(MiddleName)
+console.log(Fullname)
+
+</script>
+
+</body>
+</html>
+
