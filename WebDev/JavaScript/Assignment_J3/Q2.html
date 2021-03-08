@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS-Q2</title>
+</head>
+<body>
+<script>  
+function Area(l,b,s){
+  this.l=l;
+  this.b=b;
+  this.s=s;  
+}
+
+Area.prototype.square = function() {
+ return this.s * this.s
+};
+
+Area.prototype.rectangle = function() {
+ return this.l * this.b
+};
+
+var AreaSquare = new Area(10,20,50);
+var AreaRectangle = new Area(10,20,50);
+console.log("Area of Square is " + AreaSquare.square());
+console.log("Area of Rectangle is " + AreaRectangle.rectangle());
+
+</script>
+
+</body>
+</html>
